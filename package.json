@@ -12,6 +12,7 @@
     "@mdx-js/react": "^1.5.8",
     "@next/mdx": "^9.3.5",
     "ace-builds": "^1.4.11",
+    "classnames": "^2.2.6",
     "katex": "^0.11.1",
     "next": "9.3.5",
     "react": "16.13.1",

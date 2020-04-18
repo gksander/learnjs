@@ -1,3 +1,11 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.katex * {
+  border-color: currentColor;
+}
+
+body, html {
+  font-size: 18px;
+}

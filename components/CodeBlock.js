@@ -14,6 +14,11 @@ export default class CodeBlock extends React.Component {
     };
   }
 
+  // On mount, run code right away
+  componentDidMount() {
+    this.runCode();
+  }
+
   // Reset code to original code
   resetCode() {
     this.setState({ val: this.props.children });
