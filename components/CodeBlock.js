@@ -69,7 +69,7 @@ export default class CodeBlock extends React.Component {
     return (
       <div className="mb-4 border-l-4 pl-3">
         <div className="flex flex-wrap -mx-1">
-          <div className="w-full md:w-1/2 p-1">
+          <div className="w-full md:w-1/2 p-1 pt-0">
             <div
               className="border rounded bg-white shadow overflow-hidden"
               style={{ height }}
@@ -93,7 +93,7 @@ export default class CodeBlock extends React.Component {
               />
             </div>
           </div>
-          <div className="w-full md:w-1/2 p-1">
+          <div className="w-full md:w-1/2 p-1 md:pt-0">
             <div
               className="border rounded bg-white shadow overflow-auto h-full"
               style={{ maxHeight: height }}
