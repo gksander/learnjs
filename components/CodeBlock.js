@@ -57,12 +57,15 @@ export default class CodeBlock extends React.Component {
 
       evaluator({ print, ...injectables });
     } catch (error) {
+      this.setState({ codeError: String(error) });
       console.log(error);
     }
   }
 
   render() {
     const height = `${this.props.height || 140}px`;
+    const { output, codeError, val } = this.state;
+
     return (
       <div className="mb-4 border-l-4 pl-3">
         <div className="flex flex-wrap -mx-1">
@@ -74,7 +77,7 @@ export default class CodeBlock extends React.Component {
               <AceEditor
                 mode="javascript"
                 theme="tomorrow"
-                value={this.state.val}
+                value={val}
                 height="100%"
                 width="100%"
                 onChange={(val) => this.setState({ val })}
@@ -95,12 +98,22 @@ export default class CodeBlock extends React.Component {
               className="border rounded bg-white shadow overflow-auto h-full"
               style={{ maxHeight: height }}
             >
-              {this.state.output.map((bit, i) => (
-                <div key={i}>
-                  <span>{bit.lineNum}: </span>
-                  <span>{String(bit.value)}</span>
-                </div>
-              ))}
+              {(() => {
+                if (codeError) {
+                  return (
+                    <div className="py-1 px-2 text-red-600">{codeError}</div>
+                  );
+                }
+
+                return output.map((bit, i) => (
+                  <div key={i} className="flex py-1">
+                    <div className="w-12 text-gray-600 text-xs flex items-center justify-center">
+                      Line {bit.lineNum}:
+                    </div>
+                    <div>{String(bit.value)}</div>
+                  </div>
+                ));
+              })()}
             </div>
           </div>
         </div>

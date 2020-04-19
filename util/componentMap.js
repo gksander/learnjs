@@ -10,7 +10,10 @@ const componentMap = {
   h2: (props) => <h2 className="text-2xl mb-2" {...props} />,
   p: (props) => <p className="mb-2" {...props} />,
   inlineCode: (props) => (
-    <code className="text-red-700 p-1 bg-gray-200 rounded text-sm" {...props} />
+    <code
+      className="text-red-700 px-1 bg-gray-200 rounded text-sm"
+      {...props}
+    />
   ),
 };
 
