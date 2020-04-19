@@ -4,10 +4,10 @@ This project aims to provide both math and programming experience (a la JavaScri
 
 ## TODO:
 
-- [] Pretty header
-- [] Pretty sidebar
+- [x] Pretty header
+- [x] Header icons
+- [x] Pretty sidebar
 - [] Pretty h1
 - [] Pretty subtitle
 - [] Pretty h2
-- [] Frontmatter?
 - [] Pretty code editor/card

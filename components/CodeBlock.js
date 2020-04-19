@@ -3,6 +3,7 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-tomorrow";
 import { injectableKeys, injectables } from "../util/injectables";
+import Button from "./Button";
 
 export default class CodeBlock extends React.Component {
   constructor(props) {
@@ -61,40 +62,55 @@ export default class CodeBlock extends React.Component {
   }
 
   render() {
+    const height = `${this.props.height || 140}px`;
     return (
-      <div>
-        <div>
-          <button onClick={this.runCode.bind(this)}>Run Code</button>
-          <button onClick={this.resetCode.bind(this)}>Reset Code</button>
+      <div className="mb-4 border-l-4 pl-3">
+        <div className="flex flex-wrap -mx-1">
+          <div className="w-full md:w-1/2 p-1">
+            <div
+              className="border rounded bg-white shadow overflow-hidden"
+              style={{ height }}
+            >
+              <AceEditor
+                mode="javascript"
+                theme="tomorrow"
+                value={this.state.val}
+                height="100%"
+                width="100%"
+                onChange={(val) => this.setState({ val })}
+                tabSize={2}
+                commands={[
+                  {
+                    name: "run",
+                    bindKey: { win: "Ctrl-Enter", mac: "Command-Enter" },
+                    exec: this.runCode.bind(this),
+                  },
+                ]}
+                fontSize={15}
+              />
+            </div>
+          </div>
+          <div className="w-full md:w-1/2 p-1">
+            <div
+              className="border rounded bg-white shadow overflow-auto h-full"
+              style={{ maxHeight: height }}
+            >
+              {this.state.output.map((bit, i) => (
+                <div key={i}>
+                  <span>{bit.lineNum}: </span>
+                  <span>{String(bit.value)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="flex flex-wrap">
-          <div className="w-full md:w-1/2">
-            <AceEditor
-              mode="javascript"
-              theme="tomorrow"
-              value={this.state.val}
-              height={String(this.props.height || 140) + "px"}
-              width="100%"
-              onChange={(val) => this.setState({ val })}
-              tabSize={2}
-              commands={[
-                {
-                  name: "run",
-                  bindKey: { win: "Ctrl-Enter", mac: "Command-Enter" },
-                  exec: this.runCode.bind(this),
-                },
-              ]}
-            />
-          </div>
-          <div className="w-full md:w-1/2">
-            <h2>Output</h2>
-            {this.state.output.map((bit, i) => (
-              <div key={i}>
-                <span>{bit.lineNum}: </span>
-                <span>{String(bit.value)}</span>
-              </div>
-            ))}
-          </div>
+        <div className="mt-2">
+          <Button
+            title="Run Code"
+            onClick={this.runCode.bind(this)}
+            className="mr-2"
+          />
+          <Button title="Reset Code" onClick={this.resetCode.bind(this)} />
         </div>
       </div>
     );
