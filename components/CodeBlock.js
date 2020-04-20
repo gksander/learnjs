@@ -1,7 +1,8 @@
 import React from "react";
-import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-tomorrow";
+import "codemirror/mode/javascript/javascript";
+import "codemirror/addon/edit/closebrackets";
+import { Controlled as CodeMirror } from "react-codemirror2";
+
 import { injectableKeys, injectables } from "../util/injectables";
 import Button from "./Button";
 
@@ -9,7 +10,7 @@ export default class CodeBlock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      val: props.children,
+      value: props.children,
       output: [],
       codeError: null,
     };
@@ -22,7 +23,7 @@ export default class CodeBlock extends React.Component {
 
   // Reset code to original code
   resetCode() {
-    this.setState({ val: this.props.children });
+    this.setState({ value: this.props.children });
   }
 
   // Run code
@@ -41,7 +42,7 @@ export default class CodeBlock extends React.Component {
 
     try {
       // Transform print(x) into print(n, x)
-      const evalString = this.state.val
+      const evalString = this.state.value
         .split("\n")
         .map((line, i) => line.replace(/print\(/g, `print(${i + 1}, `))
         .join("\n");
@@ -74,22 +75,21 @@ export default class CodeBlock extends React.Component {
               className="border rounded bg-white shadow overflow-hidden"
               style={{ height }}
             >
-              <AceEditor
-                mode="javascript"
-                theme="tomorrow"
-                value={val}
-                height="100%"
-                width="100%"
-                onChange={(val) => this.setState({ val })}
-                tabSize={2}
-                commands={[
-                  {
-                    name: "run",
-                    bindKey: { win: "Ctrl-Enter", mac: "Command-Enter" },
-                    exec: this.runCode.bind(this),
+              <CodeMirror
+                value={this.state.value}
+                onBeforeChange={(editor, data, value) =>
+                  this.setState({ value })
+                }
+                options={{
+                  lineNumbers: true,
+                  autoCloseBrackets: true,
+                  tabSize: 2,
+                  theme: "material-palenight",
+                  extraKeys: {
+                    "Cmd-Enter": this.runCode.bind(this),
                   },
-                ]}
-                fontSize={15}
+                }}
+                className="h-full w-full"
               />
             </div>
           </div>

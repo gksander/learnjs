@@ -12,3 +12,7 @@
 body, html {
   font-size: 18px;
 }
+
+.CodeMirror {
+  height: 100%;
+}
