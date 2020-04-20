@@ -4,7 +4,11 @@ import classNames from "classnames";
 /**
  * Button
  */
-const Button = ({ title, onClick, className = "" }) => (
+const Button: React.FC<{
+  title: string;
+  onClick: () => any;
+  className?: string;
+}> = ({ title, onClick, className = "" }) => (
   <button
     onClick={onClick}
     className={classNames(

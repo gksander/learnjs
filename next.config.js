@@ -15,7 +15,7 @@ const withMDX = require("@next/mdx")({
 
 module.exports = optimizedImages(
   withMDX({
-    pageExtensions: ["js", "jsx", "md", "mdx"],
+    pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
     webpack: (config) => {
       config.resolve.alias["~"] = path.resolve(__dirname);
       return config;

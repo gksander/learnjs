@@ -2,9 +2,9 @@ const purgecss = [
   "@fullhuman/postcss-purgecss",
   {
     content: [
-      "./components/**/*.js",
-      "./pages/**/*.js",
-      "./util/componentMap.js",
+      "./components/**/*.(j|t)s?",
+      "./pages/**/*.(j|t)s",
+      "./util/componentMap.(j|t)s",
     ],
     defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
     // Need to whitelist katex and codemirror stuff

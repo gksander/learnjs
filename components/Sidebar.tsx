@@ -9,7 +9,7 @@ import AppLogo from "./AppLogo";
 /**
  * Sidebar from Creative Tim.
  */
-export default function Sidebar() {
+const Sidebar: React.FC = () => {
   // Local state
   const [collapseShow, setCollapseShow] = React.useState("hidden");
 
@@ -91,4 +91,6 @@ export default function Sidebar() {
       </nav>
     </>
   );
-}
+};
+
+export default Sidebar;

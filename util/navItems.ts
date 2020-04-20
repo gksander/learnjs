@@ -1,4 +1,11 @@
-const navItems = [
+// Shape of items
+type Item = {
+  title: string;
+  items: { title: string; href: string }[];
+};
+
+// Items
+const navItems: Item[] = [
   // Javascript basics
   {
     title: "JavaScript",

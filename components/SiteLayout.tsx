@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 /**
  * App shell
  */
-const SiteLayout = ({ children }) => {
+const SiteLayout: React.FC = ({ children }) => {
   return (
     <React.Fragment>
       <Sidebar />

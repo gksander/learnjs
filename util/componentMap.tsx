@@ -1,10 +1,11 @@
 import CodeBlockNoSsr from "../components/CodeBlockNoSsr";
 import AppImage from "../components/AppImage";
+import * as React from "react";
 
 /**
  * Transform elements
  */
-const componentMap = {
+const componentMap: { [key: string]: React.FC } = {
   pre: (props) => <div {...props} />,
   code: (props) => <CodeBlockNoSsr {...props} />,
   h1: (props) => <h1 className="text-5xl border-b mb-3" {...props} />,

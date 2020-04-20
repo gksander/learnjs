@@ -4,7 +4,7 @@ import Link from "next/link";
 /**
  * App logo, used in layout
  */
-const AppLogo = () => (
+const AppLogo: React.FC = () => (
   <Link href="/" passHref>
     <a className="py-2 text-xl font-black">
       <span className="text-blue-800">Math</span>

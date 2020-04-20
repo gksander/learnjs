@@ -3,7 +3,7 @@ import React from "react";
 /**
  * App Image
  */
-const AppImage = (props) => {
+const AppImage: React.FC = (props) => {
   return (
     <div className="rounded overflow-hidden border shadow mx-auto">
       <img {...props} />
