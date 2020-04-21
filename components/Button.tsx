@@ -5,18 +5,17 @@ import classNames from "classnames";
  * Button
  */
 const Button: React.FC<{
-  title: string;
   onClick: () => any;
   className?: string;
-}> = ({ title, onClick, className = "" }) => (
+}> = ({ onClick, className = "", children }) => (
   <button
     onClick={onClick}
     className={classNames(
-      "px-4 py-1 bg-blue-700 rounded text-white shadow hover:shadow-lg",
+      "w-8 h-8 flex justify-center items-center bg-blue-600 text-white rounded-full text-xs shadow hover:shadow-lg",
       className,
     )}
   >
-    {title}
+    {children}
   </button>
 );
 

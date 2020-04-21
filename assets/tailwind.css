@@ -8,3 +8,9 @@
 .CodeMirror {
   height: 100%;
 }
+
+/* purgecss start ignore */
+html, body {
+  font-size: 18px;
+}
+/* purgecss end ignore */

@@ -24,6 +24,7 @@
     "next-compose-plugins": "^2.2.0",
     "next-images": "^1.4.0",
     "next-optimized-images": "^2.5.8",
+    "re-resizable": "^6.3.2",
     "react": "16.13.1",
     "react-codemirror2": "^7.1.0",
     "react-dom": "16.13.1",
