@@ -3,6 +3,7 @@
 ## TODO:
 
 - [x] Convert to TS
-- [] Sizing for editor
-- [] Instantiate Konva
-- [] Remove Katex
+- [x] Instantiate Konva
+- [] Line numbers for prism
+- [] Disable line wrapping for prism
+
