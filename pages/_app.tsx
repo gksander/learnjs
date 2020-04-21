@@ -2,7 +2,6 @@ import React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material-palenight.css";
-import "katex/dist/katex.min.css";
 import "../assets/tailwind.css";
 import SiteLayout from "../components/SiteLayout";
 import componentMap from "../util/componentMap";

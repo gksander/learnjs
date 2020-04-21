@@ -2,14 +2,14 @@ const purgecss = [
   "@fullhuman/postcss-purgecss",
   {
     content: [
-      "./components/**/*.(j|t)s?",
-      "./pages/**/*.(j|t)s",
-      "./util/componentMap.(j|t)s",
+      "./components/**/*.tsx",
+      "./pages/**/*.tsx",
+      "./util/componentMap.tsx",
     ],
     defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
     // Need to whitelist katex and codemirror stuff
     whitelistPatterns: [/cm-s-material-palenight/i, /cm-/i],
-    whitelistPatternsChildren: [/katex/i, /codemirror/i],
+    whitelistPatternsChildren: [/codemirror/i],
   },
 ];
 
