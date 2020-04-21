@@ -4,6 +4,9 @@ module.exports = {
       transitionProperty: {
         height: "height",
       },
+      height: {
+        halfscreen: "50vh",
+      },
     },
   },
   variants: {

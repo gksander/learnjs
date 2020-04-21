@@ -15,11 +15,15 @@ const Sidebar: React.FC = () => {
 
   // Util
   const router = useRouter();
+  const pathname = router.pathname;
+
+  // On pathname change, hide dropdown
+  React.useEffect(() => setCollapseShow("hidden"), [pathname]);
 
   // Markup
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-no-wrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6 sticky top-0">
+      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-no-wrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-20 py-4 px-6 sticky top-0">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-no-wrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
           <AppLogo />
           <button
@@ -54,38 +58,40 @@ const Sidebar: React.FC = () => {
               </div>
             </div>
             {/* Navigation */}
-            {navItems.map((item, i) => (
-              <React.Fragment key={item.title}>
-                <h6 className="md:min-w-full text-gray-900 text-sm uppercase font-bold block pt-1 mb-2 no-underline">
-                  {item.title}
-                </h6>
-                <ul
-                  className={classNames(
-                    "md:flex-col md:min-w-full flex flex-col list-none",
-                    {
-                      "mb-3": i !== navItems.length - 1,
-                    },
-                  )}
-                >
-                  {item.items.map((subitem, j) => (
-                    <li className="items-center" key={j}>
-                      <Link href={subitem.href} passHref>
-                        <a
-                          className={classNames(
-                            "hover:text-blue-700 text-xs uppercase py-1 font-bold block",
-                            subitem.href === router.pathname
-                              ? "text-blue-700 underline"
-                              : "text-gray-700",
-                          )}
-                        >
-                          {subitem.title}
-                        </a>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </React.Fragment>
-            ))}
+            <div className="overflow-auto h-halfscreen md:h-auto hide-scrollbar">
+              {navItems.map((item, i) => (
+                <React.Fragment key={item.title}>
+                  <h6 className="md:min-w-full text-gray-900 text-sm uppercase font-bold block pt-1 mb-2 no-underline">
+                    {item.title}
+                  </h6>
+                  <ul
+                    className={classNames(
+                      "md:flex-col md:min-w-full flex flex-col list-none",
+                      {
+                        "mb-3": i !== navItems.length - 1,
+                      },
+                    )}
+                  >
+                    {item.items.map((subitem, j) => (
+                      <li className="items-center" key={j}>
+                        <Link href={subitem.href} passHref>
+                          <a
+                            className={classNames(
+                              "hover:text-blue-700 text-xs uppercase py-1 font-bold block",
+                              subitem.href === router.pathname
+                                ? "text-blue-700 underline"
+                                : "text-gray-700",
+                            )}
+                          >
+                            {subitem.title}
+                          </a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
         </div>
       </nav>
