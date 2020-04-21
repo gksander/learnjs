@@ -5,14 +5,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.katex * {
-  border-color: currentColor;
-}
-
-body, html {
-  font-size: 18px;
-}
-
 .CodeMirror {
   height: 100%;
 }

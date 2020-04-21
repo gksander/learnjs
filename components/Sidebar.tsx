@@ -56,7 +56,7 @@ const Sidebar: React.FC = () => {
             {/* Navigation */}
             {navItems.map((item, i) => (
               <React.Fragment key={item.title}>
-                <h6 className="md:min-w-full text-gray-900 text-xs uppercase font-bold block pt-1 mb-2 no-underline">
+                <h6 className="md:min-w-full text-gray-900 text-sm uppercase font-bold block pt-1 mb-2 no-underline">
                   {item.title}
                 </h6>
                 <ul
@@ -72,7 +72,7 @@ const Sidebar: React.FC = () => {
                       <Link href={subitem.href} passHref>
                         <a
                           className={classNames(
-                            "hover:text-blue-700 text-xs uppercase py-1 font-bold block",
+                            "hover:text-blue-700 text-sm uppercase py-1 font-bold block",
                             subitem.href === router.pathname
                               ? "text-blue-700"
                               : "text-gray-700",
