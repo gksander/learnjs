@@ -1,7 +1,5 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
-import "codemirror/lib/codemirror.css";
-import "codemirror/theme/mdn-like.css";
 import "../assets/tailwind.css";
 import SiteLayout from "../components/SiteLayout";
 import componentMap from "../util/componentMap";

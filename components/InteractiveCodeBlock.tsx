@@ -1,12 +1,10 @@
 import * as React from "react";
-import "codemirror/mode/javascript/javascript";
-import "codemirror/addon/edit/closebrackets";
-import { Controlled as CodeMirror } from "react-codemirror2";
 import { Resizable } from "re-resizable";
 import Button from "./Button";
 import { Layer, Rect, Stage, Text } from "react-konva";
 import { RectClass, TextClass } from "../util/StageItems";
 import { FaPlay, FaUndoAlt } from "react-icons/fa";
+import CodeEditor from "./CodeEditor";
 
 /**
  * Code block
@@ -84,22 +82,7 @@ const InteractiveCodeBlock: React.FC<{ height?: number; code: string }> = ({
   return (
     <div className="mb-4">
       <div className="border rounded overflow-hidden shadow bg-white">
-        <div style={{ height: `${height}px` }}>
-          <CodeMirror
-            value={value}
-            onBeforeChange={(editor, data, value) => setValue(value)}
-            options={{
-              lineNumbers: true,
-              autoCloseBrackets: true,
-              tabSize: 2,
-              theme: "mdn-like",
-              extraKeys: {
-                "Cmd-Enter": runCode,
-              },
-            }}
-            className="w-full h-full text-sm"
-          />
-        </div>
+        <CodeEditor code={value} onCodeChange={setValue} />
         <div className="py-3 flex justify-center relative">
           {/* Control buttons */}
           <div className="absolute left-0 top-0 z-10 px-2 py-1 flex">

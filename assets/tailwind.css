@@ -5,12 +5,19 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.CodeMirror {
-  height: 100%;
-}
-
 /* purgecss start ignore */
 html, body {
   font-size: 18px;
 }
+
+/*.code-editor-textarea-override {*/
+/*  @apply ml-6 text-sm !important;*/
+/*  outline: none;*/
+/*}*/
+
+/*.code-editor-pre-override {*/
+/*  @apply pl-6 text-sm !important;*/
+/*  outline: none;*/
+/*}*/
+
 /* purgecss end ignore */

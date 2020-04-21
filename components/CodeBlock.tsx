@@ -1,6 +1,6 @@
 import * as React from "react";
-import StaticCodeBlock from "./StaticCodeBlock";
-import InteractiveCodeBlockNoSSR from "./InteractiveCodeBlockNoSSR";
+import CodeEditor from "./CodeEditor";
+import InteractiveCodeBlock from "./InteractiveCodeBlock";
 
 /**
  * Code block
@@ -10,14 +10,14 @@ const CodeBlock: React.FC<{ height?: number; live?: boolean }> = ({
   height = 140,
   live = false,
 }) => {
-  const code = String(children).replace(/\n$/, "");
+  const code = String(children).trim();
 
   // Live editors
   if (live) {
-    return <InteractiveCodeBlockNoSSR height={height} code={code} />;
+    return <InteractiveCodeBlock height={height} code={code} />;
   }
 
-  return <StaticCodeBlock code={code} />;
+  return <CodeEditor code={code} className="rounded mb-4 shadow" />;
 };
 
 export default CodeBlock;
