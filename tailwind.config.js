@@ -8,6 +8,7 @@ module.exports = {
   },
   variants: {
     transitionProperty: ["responsive"],
+    margin: ["responsive", "last"],
   },
   plugins: [],
 };

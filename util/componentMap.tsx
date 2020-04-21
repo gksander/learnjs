@@ -18,6 +18,11 @@ const componentMap: { [key: string]: React.FC } = {
     />
   ),
   img: AppImage,
+  blockquote: (props) => (
+    <div className="border-l-4 border-gray-400 pl-4" {...props} />
+  ),
+  ul: (props) => <ul className="list-disc ml-6 mb-4" {...props} />,
+  li: (props) => <li className="mb-2 last:mb-0" {...props} />,
 };
 
 export default componentMap;

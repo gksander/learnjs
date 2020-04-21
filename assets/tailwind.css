@@ -1,13 +1,17 @@
 /* purgecss start ignore */
-@import 'tailwindcss/base';
+@import "tailwindcss/base";
 /* purgecss end ignore */
 
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 /* purgecss start ignore */
-html, body {
+html,
+body {
   font-size: 18px;
+}
+html {
+  font-family: "Montserrat", sans-serif;
 }
 
 /*.code-editor-textarea-override {*/
