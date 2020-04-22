@@ -8,8 +8,8 @@ const purgecss = [
     ],
     defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
     // Need to whitelist katex and codemirror stuff
-    whitelistPatterns: [/cm-s-material-palenight/i, /cm-/i],
-    whitelistPatternsChildren: [/codemirror/i],
+    whitelistPatterns: [/video-react/],
+    whitelistPatternsChildren: [/video-react/],
   },
 ];
 

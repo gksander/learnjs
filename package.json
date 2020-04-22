@@ -21,6 +21,7 @@
     "next": "9.3.5",
     "next-images": "^1.4.0",
     "next-optimized-images": "^2.5.8",
+    "next-videos": "^1.1.4",
     "prism-react-renderer": "^1.0.2",
     "re-resizable": "^6.3.2",
     "react": "16.13.1",
@@ -30,7 +31,8 @@
     "react-simple-code-editor": "^0.11.0",
     "remark-emoji": "^2.1.0",
     "remark-images": "^2.0.0",
-    "uuid": "^7.0.3"
+    "uuid": "^7.0.3",
+    "video-react": "^0.14.1"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.2",

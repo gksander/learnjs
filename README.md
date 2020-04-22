@@ -13,11 +13,9 @@
 - BASICS
 - [x] What is programming?
 - [] What is JavaScript?
-- [] Values
-- [] Expressions
+- [x] Values, Expressions, Operators
 - [] Statements
 - [] Variables
-- [] Operators
 - [] Data Types (order? Not sure...)
 
 - [] DATA TYPES

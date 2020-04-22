@@ -22,7 +22,8 @@ const componentMap: { [key: string]: React.FC } = {
     <div className="border-l-4 border-gray-400 pl-4" {...props} />
   ),
   ul: (props) => <ul className="list-disc ml-6 mb-4" {...props} />,
-  li: (props) => <li className="mb-2 last:mb-0" {...props} />,
+  li: (props) => <li className="mb-2 last:mb-0 pl-1" {...props} />,
+  ol: (props) => <ol className="list-decimal ml-6 mb-4" {...props} />,
 };
 
 export default componentMap;

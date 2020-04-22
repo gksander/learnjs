@@ -1,5 +1,6 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
+import "video-react/dist/video-react.css";
 import "../assets/tailwind.css";
 import SiteLayout from "../components/SiteLayout";
 import componentMap from "../util/componentMap";
