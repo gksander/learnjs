@@ -3,7 +3,7 @@ import { Resizable } from "re-resizable";
 import Button from "./Button";
 import { Layer, Rect, Stage, Text } from "react-konva";
 import { RectClass, TextClass } from "../util/StageItems";
-import { FaPlay, FaUndoAlt } from "react-icons/fa";
+import { FaPlay, FaUndoAlt, FaAngleRight } from "react-icons/fa";
 import CodeEditor from "./CodeEditor";
 
 /**
@@ -18,13 +18,18 @@ const InteractiveCodeBlock: React.FC<{ height?: number; code: string }> = ({
   const [stageItems, setStageItems] = React.useState<
     Array<TextClass | RectClass>
   >([]);
+  const [logItems, setLogItems] = React.useState<String[]>([]);
   const [$stageWidth, setStageWidth] = React.useState(200);
   const [$stageHeight, setStageHeight] = React.useState(200);
 
   // Reset stage
   const resetStage = () => {
     setStageItems([]);
+    setLogItems([]);
   };
+
+  // Log helper
+  const $log = (val: string) => setLogItems((items) => items.concat(val));
 
   // Rect helper
   const $rect = (...params: ConstructorParameters<typeof RectClass>) =>
@@ -47,6 +52,7 @@ const InteractiveCodeBlock: React.FC<{ height?: number; code: string }> = ({
     try {
       // Things to inject into func
       const injectables = {
+        $log,
         $text,
         $rect,
         $stageWidth,
@@ -77,78 +83,99 @@ const InteractiveCodeBlock: React.FC<{ height?: number; code: string }> = ({
     runCode();
   };
 
+  // When stage size changes, rerun code.
   React.useEffect(runCode, [$stageWidth, $stageHeight]);
+
+  // When to show log
+  const showLog = logItems.length > 0;
 
   return (
     <div className="mb-4">
-      <div className="border rounded overflow-hidden shadow bg-white">
+      <div className="border rounded shadow bg-white">
         <CodeEditor code={value} onCodeChange={setValue} />
-        <div className="py-3 flex justify-center relative">
+        <div className="flex relative flex-wrap">
           {/* Control buttons */}
-          <div className="absolute left-0 top-0 z-10 px-2 py-1 flex">
-            <Button onClick={runCode} className="mr-2">
+          <div className="absolute left-0 top-0 z-10 py-2 -mx-4">
+            <Button onClick={runCode} className="mb-2">
               <FaPlay />
             </Button>
             <Button onClick={resetCode}>
               <FaUndoAlt />
             </Button>
           </div>
-          <Resizable
-            size={{ width: $stageWidth, height: $stageHeight }}
-            onResizeStop={(e, dir, ref, d) => {
-              setStageWidth((oldW) => oldW + d.width);
-              setStageHeight((oldH) => oldH + d.height);
-            }}
-            minWidth={200}
-            minHeight={200}
-            className="border shadow-md relative"
-          >
-            {/* Here's the actual stage */}
-            <Stage
-              width={$stageWidth}
-              height={$stageHeight}
-              className="w-full h-full"
+          <div className="flex-1 py-3 flex justify-center">
+            <Resizable
+              size={{ width: $stageWidth, height: $stageHeight }}
+              onResizeStop={(e, dir, ref, d) => {
+                setStageWidth((oldW) => oldW + d.width);
+                setStageHeight((oldH) => oldH + d.height);
+              }}
+              minWidth={200}
+              minHeight={200}
+              className="border shadow-md relative"
             >
-              <Layer>
-                {stageItems.map((item, i) => {
-                  // Text
-                  if (item instanceof TextClass) {
-                    return (
-                      <Text
-                        key={item.id}
-                        text={item.text}
-                        x={item.x}
-                        y={item.y}
-                        fontSize={18}
-                        {...item.options}
-                      />
-                    );
-                  }
+              {/* Here's the actual stage */}
+              <Stage
+                width={$stageWidth}
+                height={$stageHeight}
+                className="w-full h-full"
+              >
+                <Layer>
+                  {stageItems.map((item, i) => {
+                    // Text
+                    if (item instanceof TextClass) {
+                      return (
+                        <Text
+                          key={item.id}
+                          text={item.text}
+                          x={item.x}
+                          y={item.y}
+                          fontSize={18}
+                          {...item.options}
+                        />
+                      );
+                    }
 
-                  // Rectangle
-                  if (item instanceof RectClass) {
-                    return (
-                      <Rect
-                        key={item.id}
-                        width={item.width}
-                        height={item.height}
-                        x={item.x}
-                        y={item.y}
-                        fill="red"
-                        {...item.options}
-                      />
-                    );
-                  }
+                    // Rectangle
+                    if (item instanceof RectClass) {
+                      return (
+                        <Rect
+                          key={item.id}
+                          width={item.width}
+                          height={item.height}
+                          x={item.x}
+                          y={item.y}
+                          fill="red"
+                          {...item.options}
+                        />
+                      );
+                    }
 
-                  return null;
-                })}
-              </Layer>
-            </Stage>
-            {/* Dimensions indicator */}
-            <div className="absolute bottom-0 right-0 px-2 py-1 bg-white rounded-tl border-l border-t text-xs">
-              {$stageWidth}px x {$stageHeight}px
+                    return null;
+                  })}
+                </Layer>
+              </Stage>
+              {/* Dimensions indicator */}
+              <div className="absolute bottom-0 right-0 px-2 py-1 bg-white rounded-tl border-l border-t text-xs">
+                {$stageWidth}px x {$stageHeight}px
+              </div>
+            </Resizable>
+          </div>
+          {showLog && (
+            <div className="w-full md:w-1/3 border-t md:border-l">
+              <div className="px-2 py-1 text-lg">Log</div>
+              {logItems.map((item, i) => (
+                <div key={i} className="px-1 py-1 flex items-center">
+                  <div className="w-4">
+                    <FaAngleRight />
+                  </div>
+                  <div className="ml-1 whitespace-no-wrap overflow-auto hide-scrollbar">
+                    {String(item)}
+                  </div>
+                </div>
+              ))}
             </div>
-          </Resizable>
+          )}
         </div>
       </div>
     </div>

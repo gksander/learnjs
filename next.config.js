@@ -1,11 +1,12 @@
 const optimizedImages = require("next-optimized-images");
 const remarkImages = require("remark-images");
+const remarkEmojis = require("remark-emoji");
 const path = require("path");
 
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkImages],
+    remarkPlugins: [remarkImages, remarkEmojis],
   },
 });
 

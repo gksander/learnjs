@@ -10,14 +10,13 @@ const navItems: Item[] = [
   {
     title: "Fundamentals",
     items: [
+      { title: "Getting Started", href: "/getting-started" },
       { title: "What is programming?", href: "/what-is-programming" },
       { title: "What is JavaScript?", href: "/what-is-javascript" },
-      // { title: "Syntax", href: "/syntax" },
-      { title: "Expressions", href: "/expressions" },
-      { title: "Statements", href: "/statements" },
-      { title: "Variables", href: "/variables" },
-      { title: "Operators", href: "/operators" },
-      { title: "Data Types", href: "/data-types" },
+      { title: "Values and Expressions", href: "/values-and-expressions" },
+      // { title: "Statements", href: "/statements" },
+      // { title: "Variables", href: "/variables" },
+      // { title: "Data Types", href: "/data-types" },
     ],
   },
 

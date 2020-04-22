@@ -6,18 +6,18 @@
 - [x] Instantiate Konva
 - [] Line numbers for prism
 - [] Disable line wrapping for prism
-- [] Blockquote styling
+- [x] Blockquote styling
 
 ## General topics
 
 - BASICS
-- [] What is programming?
+- [x] What is programming?
 - [] What is JavaScript?
-- [] Syntax
+- [] Values
+- [] Expressions
 - [] Statements
 - [] Variables
 - [] Operators
-- [] Expressions
 - [] Data Types (order? Not sure...)
 
 - [] DATA TYPES
