@@ -12,11 +12,11 @@ const navItems: Item[] = [
     items: [
       { title: "What is programming?", href: "/what-is-programming" },
       { title: "What is JavaScript?", href: "/what-is-javascript" },
-      { title: "Syntax", href: "/syntax" },
+      // { title: "Syntax", href: "/syntax" },
+      { title: "Expressions", href: "/expressions" },
       { title: "Statements", href: "/statements" },
       { title: "Variables", href: "/variables" },
       { title: "Operators", href: "/operators" },
-      { title: "Expressions", href: "/expressions" },
       { title: "Data Types", href: "/data-types" },
     ],
   },

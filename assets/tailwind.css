@@ -4,14 +4,13 @@
 
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;0,900;1,400&display=swap");
 
 /* purgecss start ignore */
 html,
 body {
   font-size: 18px;
-}
-html {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

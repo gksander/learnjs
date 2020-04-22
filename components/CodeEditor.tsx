@@ -39,7 +39,7 @@ const CodeEditor: React.FC<{
       fontFamily: '"Dank Mono", "Fira Code", monospace',
       ...theme.plain,
     }}
-    className={classNames("text-xs", className)}
+    className={classNames("text-sm", className)}
     padding={10}
     textareaClassName="code-editor-textarea-override"
     preClassName="code-editor-pre-override"
