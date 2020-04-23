@@ -17,7 +17,7 @@ const CodeBlock: React.FC<{ height?: number; live?: boolean }> = ({
     return <InteractiveCodeBlock height={height} code={code} />;
   }
 
-  return <CodeEditor code={code} className="rounded mb-4 shadow" />;
+  return <CodeEditor code={code} className="rounded mb-5 shadow" />;
 };
 
 export default CodeBlock;

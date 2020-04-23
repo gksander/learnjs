@@ -101,7 +101,7 @@ const InteractiveCodeBlock: React.FC<{ height?: number; code: string }> = ({
   const showLog = logItems.length > 0;
 
   return (
-    <div className="mb-4">
+    <div className="mb-5">
       <div className="border rounded shadow bg-white">
         <CodeEditor code={value} onCodeChange={setValue} />
         <div className="flex relative flex-wrap">
