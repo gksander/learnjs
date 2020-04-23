@@ -11,7 +11,7 @@ const Button: React.FC<{
   <button
     onClick={onClick}
     className={classNames(
-      "w-8 h-8 flex justify-center items-center bg-blue-600 text-white rounded-full text-xs shadow hover:shadow-lg",
+      "w-8 h-8 flex justify-center items-center bg-primary-700 text-white rounded-full text-xs shadow hover:shadow-lg",
       className,
     )}
   >

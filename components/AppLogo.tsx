@@ -7,7 +7,7 @@ import Link from "next/link";
 const AppLogo: React.FC = () => (
   <Link href="/" passHref>
     <a className="py-2 text-xl font-black">
-      <span className="text-blue-800">Learn</span>
+      <span className="text-primary-800">Learn</span>
       <span>JS</span>
     </a>
   </Link>

@@ -77,9 +77,9 @@ const Sidebar: React.FC = () => {
                         <Link href={subitem.href} passHref>
                           <a
                             className={classNames(
-                              "hover:text-blue-700 text-xs uppercase py-1 font-bold block",
+                              "hover:text-primary-700 text-xs uppercase py-1 font-bold block",
                               subitem.href === router.pathname
-                                ? "text-blue-700 underline"
+                                ? "text-primary-700 underline"
                                 : "text-gray-700",
                             )}
                           >

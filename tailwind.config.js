@@ -1,3 +1,5 @@
+const { colors } = require("tailwindcss/defaultTheme");
+
 module.exports = {
   theme: {
     extend: {
@@ -6,6 +8,9 @@ module.exports = {
       },
       height: {
         halfscreen: "50vh",
+      },
+      colors: {
+        primary: colors.purple,
       },
     },
   },

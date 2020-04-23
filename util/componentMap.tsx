@@ -1,6 +1,7 @@
 import AppImage from "../components/AppImage";
 import * as React from "react";
 import CodeBlock from "../components/CodeBlock";
+import BlockQuote from "../components/BlockQuote";
 
 /**
  * Transform elements
@@ -18,9 +19,7 @@ const componentMap: { [key: string]: React.FC } = {
     />
   ),
   img: AppImage,
-  blockquote: (props) => (
-    <div className="border-l-4 border-gray-400 pl-4" {...props} />
-  ),
+  blockquote: (props) => <BlockQuote {...props} />,
   ul: (props) => <ul className="list-disc ml-6 mb-4" {...props} />,
   li: (props) => <li className="mb-2 last:mb-0 pl-1" {...props} />,
   ol: (props) => <ol className="list-decimal ml-6 mb-4" {...props} />,

@@ -1,3 +1,25 @@
 # Variables
 
-In the previous chapter we looked at...
+TODO: value reuse, expression simplification, and then some details about variables. 
+
+In the previous chapter we looked at _values_ and _expressions_. Recall that a _value_ is just some "thing" we work with when programming (such as a number or a word), and expressions are combinations of values that can be evaluated to a single value. In this chapter, we're going to look at a few problems we often run into when working with values and expressions, and a tool for solving those problems!
+
+## Problem #1: Reusing a value
+
+Suppose we wan to make a square. We don't know much about the square we're going to make, other than the fact that - since it's a square - it _must_ be a rectangle that has the same width and height. Let's go ahead and make one of those using our handy `$rect` command.
+
+> The `$rect` command takes at least 2 values: the first is the width of the rectangle, and the second is the height of the rectangle. So `$rect(100, 40)` would create a rectangle with a width of 100 px and a height of 40 px.
+
+Let's start our activity by creating a square that has a side length of `70` px (pixels).
+
+```js live=true
+$rect(70, 70);
+```
+
+Now, by changing the line of code in the live code snippet above, do the following 3 things:
+
+1. Make the square have a side length of 100 px.
+2. Now make the square have a side length of 185 px.
+3. Now make the square have a side length of 15 px.
+
+You might have noticed something! Every time you wanted to change the size of the square, you had to change _both the width and the height_.
